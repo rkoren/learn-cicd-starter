@@ -2,7 +2,6 @@ FROM debian:stable-slim
 
 RUN apt-get update && apt-get install -y ca-certificates
 
-COPY notely /usr/local/bin/
-ENV PORT=8080
+ADD notely /usr/bin/notely
 
 CMD ["notely"]
