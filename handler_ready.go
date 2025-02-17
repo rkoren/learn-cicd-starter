@@ -1,7 +1,12 @@
 package main
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 func handlerReadiness(w http.ResponseWriter, r *http.Request) {
-	respondWithJSON(w, http.StatusOK, map[string]string{"status": "ok"})
+	log.Println("Received health check request") // Add this
+	w.Header().Set("Content-Type", "text/plain")
+	w.Write([]byte("ok"))
 }
